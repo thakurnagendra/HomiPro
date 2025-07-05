@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class LoginScreen extends StatefulWidget {
+class LoginController extends GetxController {
+  var obscurePassword = true.obs;
+
+  void togglePasswordVisibility() {
+    obscurePassword.value = !obscurePassword.value;
+  }
+}
+
+class LoginScreen extends GetView<LoginController> {
   const LoginScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
-}
-
-class _LoginScreenState extends State<LoginScreen> {
-  bool _obscurePassword = true;
-
-  @override
   Widget build(BuildContext context) {
+    Get.put(LoginController());
     return Scaffold(
       backgroundColor: const Color(0xFFFFFFFF),
       body: Center(
@@ -21,51 +24,42 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.asset(
-                  'Assets/Images/logo.jpg',
-                  height: 120,
-                  width: 120,
-                ),
+                Image.asset('Assets/Images/logo.jpg', height: 120, width: 120),
                 const SizedBox(height: 10),
                 const Text(
                   'Login to Continue...',
-                  style: TextStyle(
-                    fontStyle: FontStyle.italic,
-                    fontSize: 18,
-                  ),
+                  style: TextStyle(fontStyle: FontStyle.italic, fontSize: 18),
                 ),
                 const SizedBox(height: 25),
                 TextFormField(
-                  decoration: const InputDecoration(
+                  decoration: InputDecoration(
                     labelText: 'Email',
-                    prefixIcon: Icon(Icons.email),
+                    prefixIcon: const Icon(Icons.email),
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.zero,
+                      borderRadius: BorderRadius.circular(12),
                     ),
                   ),
                 ),
                 const SizedBox(height: 15),
 
                 /// ✅ Password Field with Eye Icon
-                TextFormField(
-                  obscureText: _obscurePassword,
-                  decoration: InputDecoration(
-                    labelText: 'Password',
-                    prefixIcon: const Icon(Icons.lock),
-                    border: const OutlineInputBorder(
-                      borderRadius: BorderRadius.zero,
-                    ),
-                    suffixIcon: IconButton(
-                      icon: Icon(
-                        _obscurePassword
-                            ? Icons.visibility_off
-                            : Icons.visibility,
+                Obx(
+                  () => TextFormField(
+                    obscureText: controller.obscurePassword.value,
+                    decoration: InputDecoration(
+                      labelText: 'Password',
+                      prefixIcon: const Icon(Icons.lock),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12),
                       ),
-                      onPressed: () {
-                        setState(() {
-                          _obscurePassword = !_obscurePassword;
-                        });
-                      },
+                      suffixIcon: IconButton(
+                        icon: Icon(
+                          controller.obscurePassword.value
+                              ? Icons.visibility_off
+                              : Icons.visibility,
+                        ),
+                        onPressed: controller.togglePasswordVisibility,
+                      ),
                     ),
                   ),
                 ),
@@ -85,7 +79,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: ElevatedButton(
                     onPressed: () {},
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.deepOrange,
+                      backgroundColor: const Color(0xFF2C6DB5),
                       padding: const EdgeInsets.symmetric(vertical: 15),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
@@ -94,49 +88,48 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: const Text(
                       'Login',
                       style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold),
+                        color: Colors.white,
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ),
+                const SizedBox(height: 15),
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton.icon(
+                    onPressed: () {},
+                    icon: Image.asset(
+                      'Assets/Images/google.jpg',
+                      height: 20,
+                      width: 20,
+                    ),
+                    label: const Text(
+                      'Login with Google',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.white,
+                      padding: const EdgeInsets.symmetric(vertical: 15),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        side: BorderSide(color: Colors.grey.shade300),
+                      ),
+                    ),
+                  ),
+                ),
+
                 const SizedBox(height: 20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Text("Don't have an account? "),
-                    TextButton(
-                      onPressed: () {},
-                      child: const Text('Sign Up'),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 10),
-                const Text(
-                  'Sign up with',
-                  style: TextStyle(color: Colors.grey),
-                ),
-                const SizedBox(height: 10),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    IconButton(
-                      icon: Image.asset(
-                        'Assets/Images/google.jpg',
-                        height: 40,
-                        width: 40,
-                      ),
-                      onPressed: () {},
-                    ),
-                    const SizedBox(width: 20),
-                    IconButton(
-                      icon: Image.asset(
-                        'Assets/Images/facebook.webp',
-                        height: 60,
-                        width: 60,
-                      ),
-                      onPressed: () {},
-                    ),
+                    TextButton(onPressed: () {}, child: const Text('Sign Up')),
                   ],
                 ),
               ],
