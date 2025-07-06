@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:homipro/widgets/button_widget.dart';
 
 class LoginController extends GetxController {
   var obscurePassword = true.obs;
@@ -77,7 +76,24 @@ class LoginScreen extends GetView<LoginController> {
                 ),
                 SizedBox(
                   width: double.infinity,
-                  child: ButtonWidget(title: "Login", onTap: () {}),
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xFF2C6DB5),
+                      padding: const EdgeInsets.symmetric(vertical: 15),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                    child: const Text(
+                      'Login',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
                 ),
                 const SizedBox(height: 15),
                 SizedBox(
