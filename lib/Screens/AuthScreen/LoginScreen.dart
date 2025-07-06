@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:homipro/Screens/AuthScreen/SignUpScreen.dart';
 
 class LoginController extends GetxController {
   var obscurePassword = true.obs;
@@ -33,8 +34,7 @@ class LoginScreen extends GetView<LoginController> {
                 const SizedBox(height: 25),
                 TextFormField(
                   decoration: InputDecoration(
-                    labelText: 'Email',
-                    prefixIcon: const Icon(Icons.email),
+                    labelText: 'Mobile Number / Email',
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
                     ),
@@ -48,7 +48,6 @@ class LoginScreen extends GetView<LoginController> {
                     obscureText: controller.obscurePassword.value,
                     decoration: InputDecoration(
                       labelText: 'Password',
-                      prefixIcon: const Icon(Icons.lock),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
                       ),
@@ -129,7 +128,12 @@ class LoginScreen extends GetView<LoginController> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Text("Don't have an account? "),
-                    TextButton(onPressed: () {}, child: const Text('Sign Up')),
+                    TextButton(
+                      onPressed: () {
+                        Get.to(() => const SignUpScreen());
+                      },
+                      child: const Text('Sign Up'),
+                    ),
                   ],
                 ),
               ],
