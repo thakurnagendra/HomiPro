@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:homipro/Screens/AuthScreen/SignUpScreen.dart';
 
 class LoginController extends GetxController {
   var obscurePassword = true.obs;
@@ -129,7 +130,9 @@ class LoginScreen extends GetView<LoginController> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Text("Don't have an account? "),
-                    TextButton(onPressed: () {}, child: const Text('Sign Up')),
+                    TextButton(onPressed: () {
+                      Get.to(() => const SignUpScreen());
+                    }, child: const Text('Sign Up')),
                   ],
                 ),
               ],
