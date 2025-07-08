@@ -1,16 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:homipro/Screens/AuthScreen/LoginScreen.dart';
+import 'package:homipro/Controllers/WelcomeController.dart';
 import 'package:get/get.dart';
-
-class WelcomeController extends GetxController {
-  @override
-  void onInit() {
-    super.onInit();
-    Future.delayed(const Duration(milliseconds: 3000), () {
-      Get.offAll(() => const LoginScreen());
-    });
-  }
-}
 
 class WelcomeScreen extends GetView<WelcomeController> {
   const WelcomeScreen({super.key});

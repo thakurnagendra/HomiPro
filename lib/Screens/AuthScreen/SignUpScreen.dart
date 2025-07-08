@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import '../../Widgets/DocumentUploadTile.dart';
+import '../../Constant/ConstantColor.dart';
+import '../../Widgets/CustomTextField.dart';
 
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({Key? key}) : super(key: key);
@@ -8,9 +11,9 @@ class SignUpScreen extends StatelessWidget {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
-        backgroundColor: const Color(0xFFFFFFFF),
+        backgroundColor: backgroundColor,
         appBar: AppBar(
-          backgroundColor: const Color(0xFFFFFFFF),
+          backgroundColor: backgroundColor,
           centerTitle: true,
           elevation: 0,
           title: const Text(
@@ -39,7 +42,7 @@ class SignUpScreen extends StatelessWidget {
                 dividerColor: Colors.transparent,
                 indicator: BoxDecoration(
                   borderRadius: BorderRadius.circular(5),
-                  color: Color(0xFF2C6DB5),
+                  color: buttonColor,
                 ),
                 tabs: const [
                   Tab(
@@ -82,41 +85,17 @@ class SignUpScreen extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: 10),
-                    TextField(
-                      decoration: InputDecoration(
-                        labelText: "Full Name",
-                        border: OutlineInputBorder(),
-                      ),
-                    ),
+                    CustomTextField(label: "Full Name"),
                     SizedBox(height: 12),
-                    TextField(
-                      decoration: InputDecoration(
-                        labelText: "Email",
-                        border: OutlineInputBorder(),
-                      ),
-                    ),
+                    CustomTextField(label: "Email"),
                     SizedBox(height: 12),
-                    TextField(
-                      decoration: InputDecoration(
-                        labelText: "Phone Number",
-                        border: OutlineInputBorder(),
-                      ),
-                    ),
+                    CustomTextField(label: "Phone Number"),
                     SizedBox(height: 12),
-                    TextField(
+                    CustomTextField(label: "Password", obscureText: true),
+                    SizedBox(height: 12),
+                    CustomTextField(
+                      label: "Confirm Password",
                       obscureText: true,
-                      decoration: InputDecoration(
-                        labelText: "Password",
-                        border: OutlineInputBorder(),
-                      ),
-                    ),
-                    SizedBox(height: 12),
-                    TextField(
-                      obscureText: true,
-                      decoration: InputDecoration(
-                        labelText: "Confirm Password",
-                        border: OutlineInputBorder(),
-                      ),
                     ),
                     SizedBox(height: 20),
                     Text(
@@ -127,31 +106,29 @@ class SignUpScreen extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: 10),
-                    TextField(
-                      decoration: InputDecoration(
-                        labelText: "Province",
-                        border: OutlineInputBorder(),
-                      ),
-                    ),
+                    CustomTextField(label: "Province"),
                     SizedBox(height: 12),
-                    TextField(
-                      decoration: InputDecoration(
-                        labelText: "City",
-                        border: OutlineInputBorder(),
-                      ),
-                    ),
+                    CustomTextField(label: "City"),
                     SizedBox(height: 12),
-                    TextField(
-                      decoration: InputDecoration(
-                        labelText: "Municipality",
-                        border: OutlineInputBorder(),
-                      ),
-                    ),
+                    CustomTextField(label: "Municipality"),
                     SizedBox(height: 12),
-                    TextField(
-                      decoration: InputDecoration(
-                        labelText: "Street / Tole",
-                        border: OutlineInputBorder(),
+                    CustomTextField(label: "Street / Tole"),
+                    // Add spacing before the button
+                    SizedBox(height: 24),
+                    ElevatedButton(
+                      onPressed: () {
+                        // TODO: Implement sign up logic for Customer
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: buttonColor,
+                        padding: EdgeInsets.symmetric(vertical: 16),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                      ),
+                      child: Text(
+                        "Sign Up",
+                        style: TextStyle(color: buttonTextColor, fontSize: 15),
                       ),
                     ),
                   ],
@@ -174,41 +151,17 @@ class SignUpScreen extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: 10),
-                    TextField(
-                      decoration: InputDecoration(
-                        labelText: "Full Name",
-                        border: OutlineInputBorder(),
-                      ),
-                    ),
+                    CustomTextField(label: "Full Name"),
                     SizedBox(height: 12),
-                    TextField(
-                      decoration: InputDecoration(
-                        labelText: "Email",
-                        border: OutlineInputBorder(),
-                      ),
-                    ),
+                    CustomTextField(label: "Email"),
                     SizedBox(height: 12),
-                    TextField(
-                      decoration: InputDecoration(
-                        labelText: "Phone Number",
-                        border: OutlineInputBorder(),
-                      ),
-                    ),
+                    CustomTextField(label: "Phone Number"),
                     SizedBox(height: 12),
-                    TextField(
+                    CustomTextField(label: "Password", obscureText: true),
+                    SizedBox(height: 12),
+                    CustomTextField(
+                      label: "Confirm Password",
                       obscureText: true,
-                      decoration: InputDecoration(
-                        labelText: "Password",
-                        border: OutlineInputBorder(),
-                      ),
-                    ),
-                    SizedBox(height: 12),
-                    TextField(
-                      obscureText: true,
-                      decoration: InputDecoration(
-                        labelText: "Confirm Password",
-                        border: OutlineInputBorder(),
-                      ),
                     ),
                     SizedBox(height: 20),
                     Text(
@@ -220,33 +173,13 @@ class SignUpScreen extends StatelessWidget {
                     ),
                     SizedBox(height: 10),
 
-                    TextField(
-                      decoration: InputDecoration(
-                        labelText: "Province",
-                        border: OutlineInputBorder(),
-                      ),
-                    ),
+                    CustomTextField(label: "Province"),
                     SizedBox(height: 12),
-                    TextField(
-                      decoration: InputDecoration(
-                        labelText: "City",
-                        border: OutlineInputBorder(),
-                      ),
-                    ),
+                    CustomTextField(label: "City"),
                     SizedBox(height: 12),
-                    TextField(
-                      decoration: InputDecoration(
-                        labelText: "Municipality",
-                        border: OutlineInputBorder(),
-                      ),
-                    ),
+                    CustomTextField(label: "Municipality"),
                     SizedBox(height: 12),
-                    TextField(
-                      decoration: InputDecoration(
-                        labelText: "Street / Tole",
-                        border: OutlineInputBorder(),
-                      ),
-                    ),
+                    CustomTextField(label: "Street / Tole"),
                     SizedBox(height: 20),
                     Text(
                       "Service Details",
@@ -275,21 +208,15 @@ class SignUpScreen extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: 12),
-                    TextField(
+                    CustomTextField(
+                      label: "Experience (Years)",
                       keyboardType: TextInputType.number,
-                      decoration: InputDecoration(
-                        labelText: "Experience (Years)",
-                        border: OutlineInputBorder(),
-                      ),
                     ),
                     SizedBox(height: 12),
-                    TextField(
+                    CustomTextField(
+                      label: "Available Time (Optional)",
                       readOnly: true,
                       onTap: null, // Time picker logic here
-                      decoration: InputDecoration(
-                        labelText: "Available Time (Optional)",
-                        border: OutlineInputBorder(),
-                      ),
                     ),
                     SizedBox(height: 20),
                     Text(
@@ -300,153 +227,46 @@ class SignUpScreen extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: 10),
-                    TextField(
-                      decoration: InputDecoration(
-                        labelText: "Citizenship Number",
-                        border: OutlineInputBorder(),
-                      ),
-                    ),
+                    CustomTextField(label: "Citizenship Number"),
                     SizedBox(height: 12),
-                    InkWell(
+                    DocumentUploadTile(
+                      label: "Upload Profile Picture ",
                       onTap: () {},
-                      borderRadius: BorderRadius.circular(10),
-                      child: Container(
-                        height: 50,
-                        padding: EdgeInsets.symmetric(horizontal: 16),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          border: Border.all(color: Colors.blueAccent),
-                          color: Colors.blue.shade50,
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black12,
-                              blurRadius: 4,
-                              offset: Offset(0, 2),
-                            ),
-                          ],
-                        ),
-                        child: Row(
-                          children: [
-                            Icon(Icons.upload_file, color: Colors.blueAccent),
-                            SizedBox(width: 12),
-                            Text(
-                              "Upload Profile Picture (Optional)",
-                              style: TextStyle(
-                                color: Colors.blueAccent,
-                                fontWeight: FontWeight.w600,
-                                fontSize: 16,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
                     ),
                     SizedBox(height: 12),
-                    InkWell(
+                    DocumentUploadTile(
+                      label: "Upload License / Certificate",
                       onTap: () {},
-                      borderRadius: BorderRadius.circular(10),
-                      child: Container(
-                        height: 50,
-                        padding: EdgeInsets.symmetric(horizontal: 16),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          border: Border.all(color: Colors.blueAccent),
-                          color: Colors.blue.shade50,
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black12,
-                              blurRadius: 4,
-                              offset: Offset(0, 2),
-                            ),
-                          ],
-                        ),
-                        child: Row(
-                          children: [
-                            Icon(Icons.upload_file, color: Colors.blueAccent),
-                            SizedBox(width: 12),
-                            Text(
-                              "Upload License / Certificate",
-                              style: TextStyle(
-                                color: Colors.blueAccent,
-                                fontWeight: FontWeight.w600,
-                                fontSize: 16,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
                     ),
                     SizedBox(height: 12),
-                    InkWell(
+                    DocumentUploadTile(
+                      label: "Upload Citizenship (Front Side)",
                       onTap: () {},
-                      borderRadius: BorderRadius.circular(10),
-                      child: Container(
-                        height: 50,
-                        padding: EdgeInsets.symmetric(horizontal: 16),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          border: Border.all(color: Colors.blueAccent),
-                          color: Colors.blue.shade50,
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black12,
-                              blurRadius: 4,
-                              offset: Offset(0, 2),
-                            ),
-                          ],
-                        ),
-                        child: Row(
-                          children: [
-                            Icon(Icons.upload_file, color: Colors.blueAccent),
-                            SizedBox(width: 12),
-                            Text(
-                              "Upload Citizenship (Front Side)",
-                              style: TextStyle(
-                                color: Colors.blueAccent,
-                                fontWeight: FontWeight.w600,
-                                fontSize: 16,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
                     ),
                     SizedBox(height: 12),
-                    InkWell(
+                    DocumentUploadTile(
+                      label: "Upload Citizenship (Back Side)",
                       onTap: () {},
-                      borderRadius: BorderRadius.circular(10),
-                      child: Container(
-                        height: 50,
-                        padding: EdgeInsets.symmetric(horizontal: 16),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          border: Border.all(color: Colors.blueAccent),
-                          color: Colors.blue.shade50,
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black12,
-                              blurRadius: 4,
-                              offset: Offset(0, 2),
-                            ),
-                          ],
-                        ),
-                        child: Row(
-                          children: [
-                            Icon(Icons.upload_file, color: Colors.blueAccent),
-                            SizedBox(width: 12),
-                            Text(
-                              "Upload Citizenship (Back Side)",
-                              style: TextStyle(
-                                color: Colors.blueAccent,
-                                fontWeight: FontWeight.w600,
-                                fontSize: 16,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
                     ),
                     SizedBox(height: 12),
+                    // Add spacing before the button
+                    SizedBox(height: 24),
+                    ElevatedButton(
+                      onPressed: () {
+                        // TODO: Implement sign up logic for Service Provider
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: buttonColor,
+                        padding: EdgeInsets.symmetric(vertical: 16),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                      ),
+                      child: Text(
+                        "Sign Up",
+                        style: TextStyle(color: buttonTextColor, fontSize: 15),
+                      ),
+                    ),
                   ],
                 ),
               ),

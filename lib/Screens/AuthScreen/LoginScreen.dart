@@ -1,14 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:homipro/Controllers/LoginController.dart';
 import 'package:homipro/Screens/AuthScreen/SignUpScreen.dart';
-
-class LoginController extends GetxController {
-  var obscurePassword = true.obs;
-
-  void togglePasswordVisibility() {
-    obscurePassword.value = !obscurePassword.value;
-  }
-}
+import '../../Constant/ConstantColor.dart';
 
 class LoginScreen extends GetView<LoginController> {
   const LoginScreen({super.key});
@@ -17,7 +11,7 @@ class LoginScreen extends GetView<LoginController> {
   Widget build(BuildContext context) {
     Get.put(LoginController());
     return Scaffold(
-      backgroundColor: const Color(0xFFFFFFFF),
+      backgroundColor: backgroundColor,
       body: Center(
         child: SingleChildScrollView(
           child: Padding(
@@ -78,16 +72,16 @@ class LoginScreen extends GetView<LoginController> {
                   child: ElevatedButton(
                     onPressed: () {},
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFF2C6DB5),
+                      backgroundColor: buttonColor,
                       padding: const EdgeInsets.symmetric(vertical: 15),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
                     ),
-                    child: const Text(
+                    child: Text(
                       'Login',
                       style: TextStyle(
-                        color: Colors.white,
+                        color: buttonTextColor,
                         fontSize: 15,
                         fontWeight: FontWeight.bold,
                       ),
