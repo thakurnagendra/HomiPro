@@ -28,7 +28,8 @@ class LoginScreen extends GetView<LoginController> {
                 const SizedBox(height: 25),
                 TextFormField(
                   decoration: InputDecoration(
-                    labelText: 'Mobile Number / Email',
+                    labelText: 'Email',
+                    prefixIcon: const Icon(Icons.email),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
                     ),
@@ -42,6 +43,7 @@ class LoginScreen extends GetView<LoginController> {
                     obscureText: controller.obscurePassword.value,
                     decoration: InputDecoration(
                       labelText: 'Password',
+                      prefixIcon: const Icon(Icons.lock),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(12),
                       ),
@@ -122,12 +124,9 @@ class LoginScreen extends GetView<LoginController> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Text("Don't have an account? "),
-                    TextButton(
-                      onPressed: () {
-                        Get.to(() => const SignUpScreen());
-                      },
-                      child: const Text('Sign Up'),
-                    ),
+                    TextButton(onPressed: () {
+                      Get.to(() => const SignUpScreen());
+                    }, child: const Text('Sign Up')),
                   ],
                 ),
               ],
